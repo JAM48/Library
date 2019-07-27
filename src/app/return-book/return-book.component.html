@@ -1,0 +1,32 @@
+
+<button (click)="openModal(template)" class="btn btn-danger">Return a book</button>
+
+<ng-template #template>
+        <div class="modal-header">
+          <h4 class="modal-title pull-left"><b><u>Return a Book</u></b></h4>
+          <button type="button" class="close pull-right"
+                  aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #f="ngForm">  
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" class="form-control" ngModel name="userEmail">
+            </div>  
+
+            <div class="form-group">
+                <label for="bookName">Book Name</label>
+                <select id="bookName" class="form-control" ngModel name="bookName">
+                    <option *ngFor="let book of books" >{{book}}</option>
+                </select>
+            </div>
+    
+            <button class=" text-center pull-right btn btn-danger"
+                    type="button" aria-label="Close" (click)= "returnBook(f.value)">
+                <span aria-hidden="true">Return This Book</span>
+            </button>     
+        </form>
+        </div>
+      </ng-template>

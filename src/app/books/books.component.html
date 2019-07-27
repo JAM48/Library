@@ -1,0 +1,70 @@
+
+<div>
+<h3><u>{{currentCategory}} Books:</u></h3>
+<return-book></return-book>
+</div>
+
+<table class="table table-borderless table-hover">
+    <thead>
+        <tr>
+         <th>ID</th>
+         <th>Book Name</th>
+         <th>Author</th>
+         <th></th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let book of books" >
+        <tr>
+          <td>{{book.id}}</td>
+          <td>{{book.name}}</td>
+          <td>{{book.author}}</td>
+          <td><button (click)="openModal(template)" class="btn btn-info">Borrow</button></td>
+          <td>
+              
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left"><b><u>{{book.name}}</u></b></h4>
+      <button type="button" class="close pull-right"
+              aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #f="ngForm">  
+        <div class="form-group">
+            <label for="name"><b>Name</b></label>
+            <input id="name" type="text" class="form-control" ngModel name="userName">
+        </div>  
+        <div class="form-group">
+            <label for="email"><b>Email</b></label>
+            <input id="email" type="email" class="form-control" ngModel name="userEmail">
+        </div>  
+        <div class="form-group">
+            <label for="Phone"><b>Phone</b></label>
+            <input id="phone" type="number" class="form-control" ngModel name="userPhone">
+        </div>  
+        <div class="form-group">
+            <label><b><u>Book Info.:</u></b></label>
+            <br>
+            <label><b>&nbsp; Book Category: </b>{{currentCategory}}</label>
+            <br>
+            <label><b>&nbsp; Book Name: </b>{{book.name}}</label>
+            <br>
+            <label><b>&nbsp; Book Author: </b>{{book.author}}</label>
+            <br>
+            <label><b><u>Note:</u></b></label>
+            <br>
+            <label>You can borrow this book <b>Only</b> for <b><u>ONE WEEK</u></b></label>
+        </div>
+        <hr>
+      <button class=" text-center pull-right btn btn-success" id="{{book.id}}"
+              type="button" aria-label="Close" (click)= "borrow(book.id,f.value)">
+        <span aria-hidden="true">Borrow This Book Now</span>
+      </button>   
+    </form>
+    </div>
+  </ng-template>
+          </td>
+        </tr>
+    </tbody>
+</table>

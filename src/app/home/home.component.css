@@ -1,0 +1,41 @@
+
+h1 {
+    font-family: Elephant;
+}
+
+p > b:hover {
+    cursor: pointer;
+    color: rgb(117, 182, 212);
+    font-size: x-large;
+}
+
+p:nth-child(1) > b:nth-child(1){
+    color: green;
+}
+
+p:nth-child(1) > b:nth-child(2){
+    color: red;
+}
+
+p:nth-child(2) > b:nth-child(1){
+    color: lightseagreen;
+}
+
+#one:hover {
+    cursor: text;
+    color:black;
+    font-size: unset;
+}
+
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+button, return-book {
+    margin: 3%;
+}
+
+div[style]{
+    height: 500px;
+}

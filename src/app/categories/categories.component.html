@@ -1,0 +1,32 @@
+
+
+<div class="row">
+  <div class="col-6">
+    <table class="table table-borderless table-hover">
+        <thead>
+            <tr>
+                <th><u>Categories</u></th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let cat of categories" >
+            <tr>
+                <td (click)="rout(cat.name)">{{cat.name}}</td>
+            </tr>
+        </tbody>
+    </table>        
+  </div>
+  <div class="col-6">
+    <carousel>
+        <slide *ngFor="let cat of categories">
+            <img src="assets/img/{{cat.id}}.jpg" alt="first slide" style="display: block; width: 100%;">
+            <div class="carousel-caption d-none d-md-block">
+            <h3>{{cat.name}}</h3>
+            </div>
+        </slide>
+        
+    </carousel>
+  </div>
+</div>
+
+
+
